@@ -1,0 +1,38 @@
+unit Unit2;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ToolWin, Vcl.ActnMan,
+  Vcl.ActnCtrls, Vcl.ActnMenus, Vcl.Buttons, Vcl.ExtCtrls, System.ImageList,
+  Vcl.ImgList;
+
+type
+  TFMenu = class(TForm)
+    pnl_fundo: TPanel;
+    pnl_topo: TPanel;
+    pnl_lateral: TPanel;
+    Panel1: TPanel;
+    SpeedButton1: TSpeedButton;
+    ImageList1: TImageList;
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FMenu: TFMenu;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFMenu.FormShow(Sender: TObject);
+begin
+  ImageList1.GetBitmap (0, SpeedButton1.Glyph);
+end;
+
+end.

@@ -1,0 +1,186 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.ExtCtrls, Vcl.StdCtrls,
+  Vcl.Imaging.pngimage, Vcl.Grids, Vcl.Buttons, Vcl.NumberBox;
+
+type
+  TForm1 = class(TForm)
+    Panel1: TPanel;
+    Image1: TImage;
+    Image2: TImage;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    Panel2: TPanel;
+    Panel17: TPanel;
+    SpeedButton7: TSpeedButton;
+    SpeedButton8: TSpeedButton;
+    SpeedButton9: TSpeedButton;
+    Panel20: TPanel;
+    Label3: TLabel;
+    Label4: TLabel;
+    SpeedButton10: TSpeedButton;
+    SpeedButton11: TSpeedButton;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    DateTimePicker3: TDateTimePicker;
+    Edit7: TEdit;
+    Edit8: TEdit;
+    NumberBox3: TNumberBox;
+    StringGrid1: TStringGrid;
+    TabSheet2: TTabSheet;
+    Panel18: TPanel;
+    Panel16: TPanel;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    DateTimePicker1: TDateTimePicker;
+    TabSheet3: TTabSheet;
+    Panel9: TPanel;
+    TabSheet4: TTabSheet;
+    TabSheet5: TTabSheet;
+    Panel6: TPanel;
+    Button13: TButton;
+    Button14: TButton;
+    Button15: TButton;
+    Panel13: TPanel;
+    Panel14: TPanel;
+    TabSheet6: TTabSheet;
+    Panel3: TPanel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    StringGrid2: TStringGrid;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    Label2: TLabel;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    NumberBox2: TNumberBox;
+    Panel7: TPanel;
+    SpeedButton4: TSpeedButton;
+    SpeedButton5: TSpeedButton;
+    SpeedButton6: TSpeedButton;
+    StringGrid3: TStringGrid;
+    Panel8: TPanel;
+    Panel10: TPanel;
+    Label5: TLabel;
+    Edit10: TEdit;
+    Panel11: TPanel;
+    SpeedButton12: TSpeedButton;
+    SpeedButton13: TSpeedButton;
+    SpeedButton14: TSpeedButton;
+    StringGrid4: TStringGrid;
+    Edit11: TEdit;
+    Label6: TLabel;
+    ComboBox1: TComboBox;
+    Label7: TLabel;
+    Edit9: TEdit;
+    Label8: TLabel;
+    Edit12: TEdit;
+    Edit13: TEdit;
+    procedure PageControl1Change(Sender: TObject);
+    procedure PageControl1DrawTab(Control: TCustomTabControl; TabIndex: Integer;
+      const Rect: TRect; Active: Boolean);
+    procedure StringGrid1Click(Sender: TObject);
+    procedure StringGrid2Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+      private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.ComboBox1Change(Sender: TObject);
+begin
+  case ComboBox1.ItemIndex of
+        0: begin
+         Edit1.Text := '45 minutos';
+         Edit2.Text := 'R$100,00';
+        end;
+        1: begin
+         Edit1.Text := '30 minutos';
+         Edit2.Text := 'R$95,00';
+        end;
+        2: begin
+         Edit1.Text := '50 minutos';
+         Edit2.Text := 'R$120,00';
+        end;
+  end;
+end;
+
+procedure TForm1.PageControl1Change(Sender: TObject);
+begin
+  panel2.Visible:=true;
+end;
+
+procedure TForm1.PageControl1DrawTab(Control: TCustomTabControl;
+  TabIndex: Integer; const Rect: TRect; Active: Boolean);
+var
+  PC: TPageControl;
+  R: TRect;
+   begin
+    PC := Control as TPageControl;
+    R := Rect;
+
+    if Active then begin
+      PC.Canvas.Brush.Color := clSkyBlue;
+      PC.Canvas.Font.Color := clBlack;
+      PC.Canvas.Font.Style := [fsBold];
+    end;
+
+    //pinta o fundo da caixinha de texto
+    PC.Canvas.FillRect(R);
+
+    //nao distorce o texto
+    DrawText(PC.Canvas.Handle,
+             PChar(PC.Pages[TabIndex].Caption),
+             -1, R,
+             DT_CENTER or DT_VCENTER or DT_SINGLELINE);
+   end;
+
+procedure TForm1.StringGrid1Click(Sender: TObject);
+begin
+  StringGrid1.Cells[0,0] := 'Nome';
+  StringGrid1.Cells[1,0] := 'CPF';
+  StringGrid1.Cells[2,0] := 'Data de Nascimento';
+  StringGrid1.Cells[3,0] := 'Especialidade';
+  StringGrid1.Cells[4,0] := 'Contato';
+
+  StringGrid1.ColWidths[0] := 200;
+  StringGrid1.ColWidths[1] := 130;
+  StringGrid1.ColWidths[2] := 280;
+  StringGrid1.ColWidths[3] := 230;
+  StringGrid1.ColWidths[4] := 180;
+end;
+
+procedure TForm1.StringGrid2Click(Sender: TObject);
+begin
+  StringGrid2.Cells[0,0] := 'Nome';
+  StringGrid2.Cells[1,0] := 'CPF';
+  StringGrid2.Cells[2,0] := 'Data de Nascimento';
+  StringGrid2.Cells[3,0] := 'Tipo de Atendimento';
+  StringGrid2.Cells[4,0] := 'Contato';
+  StringGrid2.Cells[5,0] := 'Data de Cadastro';
+  StringGrid2.Cells[6,0] := 'Sessão';
+
+  StringGrid2.ColWidths[0] := 260;
+  StringGrid2.ColWidths[1] := 200;
+  StringGrid2.ColWidths[2] := 350;
+  StringGrid2.ColWidths[3] := 330;
+  StringGrid2.ColWidths[4] := 210;
+  StringGrid2.ColWidths[5] := 310;
+  StringGrid2.ColWidths[6] := 210;
+end;
+
+end.

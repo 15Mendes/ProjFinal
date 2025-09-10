@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2025/08/18 16:57:19.000.784,=C:\Users\leona\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/08/18 16:58:20.000.034,C:\Users\leona\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\leona\OneDrive\Documents\ProjFinal\uMain.dfm</Transaction>
+    <Transaction>2025/08/18 16:58:20.000.034,C:\Users\leona\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\leona\OneDrive\Documents\ProjFinal\uMain.pas</Transaction>
+    <Transaction>2025/08/18 16:58:25.000.563,C:\Users\leona\OneDrive\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\leona\OneDrive\Documents\ProjFinal\Project1.dproj</Transaction>
+    <Transaction>2025/08/28 11:13:07.000.902,=C:\Users\leona\OneDrive\Documents\ProjFinal\Unit2.pas</Transaction>
+    <Transaction>2025/09/01 16:14:13.000.161,=C:\Delphi\ProjFinal\Unit1.pas</Transaction>
+    <Transaction>2025/09/01 16:39:58.000.966,=C:\Delphi\ProjFinal\Unit1.pas</Transaction>
+    <Transaction>2025/09/01 17:20:45.000.379,C:\Delphi\ProjFinal\Unit2.pas=</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="uMain.pas"/>
+    <File Path="uMain.dfm"/>
+    <File Path="Unit1.pas"/>
+    <File Path="Unit1.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

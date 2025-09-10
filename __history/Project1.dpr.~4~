@@ -1,0 +1,16 @@
+program Project1;
+
+uses
+  Vcl.Forms,
+  uMain in 'uMain.pas' {FLogin},
+  Unit2 in 'Unit2.pas' {FMenu};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFLogin, FLogin);
+  Application.CreateForm(TFMenu, FMenu);
+  Application.Run;
+end.

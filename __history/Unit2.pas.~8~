@@ -1,0 +1,51 @@
+unit Unit2;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ToolWin, Vcl.ActnMan,
+  Vcl.ActnCtrls, Vcl.ActnMenus, Vcl.Buttons, Vcl.ExtCtrls, System.ImageList,
+  Vcl.ImgList, Vcl.StdCtrls;
+
+type
+  TFMenu = class(TForm)
+    pnl_fundo: TPanel;
+    pnl_topo: TPanel;
+    pnl_lateral: TPanel;
+    pnl_opcoes: TPanel;
+    Button4: TButton;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FMenu: TFMenu;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFMenu.FormCreate(Sender: TObject);
+begin
+
+if (windowstate = wsMaximized) then begin
+
+Button4.Margins.Right := 6
+
+end else begin
+Button4.Margins.Right := 3
+end;
+end;
+end.
