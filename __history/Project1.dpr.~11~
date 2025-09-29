@@ -1,0 +1,19 @@
+program Project1;
+
+uses
+  Vcl.Forms,
+  uMain in 'View\uMain.pas' {FLogin},
+  Unit1 in 'View\Unit1.pas' {Form1},
+  UnitData in 'Model\UnitData.pas' {DataModule2: TDataModule},
+  Unit2 in 'Model\Unit2.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFLogin, FLogin);
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TDataModule2, DataModule2);
+  Application.Run;
+end.

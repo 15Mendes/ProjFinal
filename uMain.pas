@@ -10,19 +10,23 @@ uses
 type
   TFLogin = class(TForm)
     Panel1: TPanel;
-    Edit1: TEdit;
-    Label1: TLabel;
     Panel2: TPanel;
-    Edit2: TEdit;
     Panel3: TPanel;
     Image3: TImage;
     Image2: TImage;
     Image1: TImage;
+    Panel4: TPanel;
+    Label1: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
     Button1: TButton;
-    Button2: TButton;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Label5: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,6 +54,11 @@ begin
     Form1.show;
    end;
 
+end;
+
+procedure TFLogin.Edit1Change(Sender: TObject);
+begin
+  Edit1.PasswordChar := '•';
 end;
 
 procedure TFLogin.FormCreate(Sender: TObject);

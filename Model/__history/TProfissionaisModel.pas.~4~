@@ -1,0 +1,21 @@
+unit TProfissionaisModel;
+
+interface
+
+  type TProfissionais = Class
+    private
+      Nome: string;
+      Cpf: string;
+      Email: string;
+      Contato: string;
+    public
+      function getNome: string;
+      function getCpf: string;
+      function getEmail: string;
+      function getContato: string;
+
+  End;
+
+implementation
+
+end.

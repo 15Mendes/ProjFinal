@@ -2,8 +2,13 @@ program Project1;
 
 uses
   Vcl.Forms,
-  uMain in 'uMain.pas' {FLogin},
-  Unit1 in 'Unit1.pas' {Form1};
+  uCadastro in 'View\uCadastro.pas' {FLogin},
+  uPrincipal in 'View\uPrincipal.pas' {Form1},
+  UnitData in 'Model\UnitData.pas' {DataModule2: TDataModule},
+  TProfissionaisModel in 'Model\TProfissionaisModel.pas',
+  CadastroUsuarioRepository in 'Repository\CadastroUsuarioRepository.pas',
+  CadastroUsuarioController in 'Controller\CadastroUsuarioController.pas',
+  UsuarioService in 'Service\UsuarioService.pas';
 
 {$R *.res}
 
@@ -12,5 +17,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFLogin, FLogin);
   Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TDataModule2, DataModule2);
   Application.Run;
 end.

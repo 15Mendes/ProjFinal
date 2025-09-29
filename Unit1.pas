@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.ExtCtrls, Vcl.StdCtrls,
-  Vcl.Imaging.pngimage, Vcl.Grids, Vcl.Buttons, Vcl.NumberBox;
+  Vcl.Imaging.pngimage, Vcl.Grids, Vcl.Buttons, Vcl.NumberBox, Vcl.Mask,
+  Vcl.WinXPanels;
 
 type
   TForm1 = class(TForm)
@@ -16,81 +17,23 @@ type
     TabSheet7: TTabSheet;
     TabSheet1: TTabSheet;
     Panel2: TPanel;
-    Panel17: TPanel;
-    SpeedButton7: TSpeedButton;
-    SpeedButton8: TSpeedButton;
-    SpeedButton9: TSpeedButton;
-    Panel20: TPanel;
-    Label3: TLabel;
-    Label4: TLabel;
-    SpeedButton10: TSpeedButton;
-    SpeedButton11: TSpeedButton;
-    Edit5: TEdit;
-    Edit6: TEdit;
-    DateTimePicker3: TDateTimePicker;
-    Edit7: TEdit;
-    Edit8: TEdit;
-    NumberBox3: TNumberBox;
-    StringGrid1: TStringGrid;
     TabSheet2: TTabSheet;
     Panel18: TPanel;
-    Panel16: TPanel;
-    Label1: TLabel;
-    Edit1: TEdit;
-    Edit2: TEdit;
-    DateTimePicker1: TDateTimePicker;
-    Edit13: TEdit;
-    Panel3: TPanel;
-    SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    StringGrid2: TStringGrid;
     TabSheet3: TTabSheet;
-    Panel9: TPanel;
-    Panel4: TPanel;
-    Panel5: TPanel;
-    Label2: TLabel;
-    Label6: TLabel;
-    Edit3: TEdit;
-    Edit4: TEdit;
-    NumberBox2: TNumberBox;
-    Edit11: TEdit;
-    Panel7: TPanel;
-    SpeedButton4: TSpeedButton;
-    SpeedButton5: TSpeedButton;
-    SpeedButton6: TSpeedButton;
-    StringGrid3: TStringGrid;
     TabSheet4: TTabSheet;
-    Panel8: TPanel;
-    Panel10: TPanel;
-    Label5: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    Edit10: TEdit;
-    ComboBox1: TComboBox;
-    Edit9: TEdit;
-    Edit12: TEdit;
-    Panel11: TPanel;
-    SpeedButton12: TSpeedButton;
-    SpeedButton13: TSpeedButton;
-    SpeedButton14: TSpeedButton;
-    StringGrid4: TStringGrid;
-    TabSheet5: TTabSheet;
-    Panel6: TPanel;
-    Button13: TButton;
-    Button14: TButton;
-    Button15: TButton;
-    Panel13: TPanel;
-    Panel14: TPanel;
     TabSheet6: TTabSheet;
     Panel19: TPanel;
-    Panel21: TPanel;
-    Label9: TLabel;
+    Panel4: TPanel;
+    Panel8: TPanel;
+    PageControl6: TPageControl;
+    TabSheet15: TTabSheet;
+    TabSheet16: TTabSheet;
+    PanelMenuAt: TPanel;
     Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
     Label10: TLabel;
-    SpeedButton15: TSpeedButton;
+    buttonAdicionarPacienteAt: TSpeedButton;
     Label14: TLabel;
     Label15: TLabel;
     Label16: TLabel;
@@ -99,25 +42,181 @@ type
     Label19: TLabel;
     Label20: TLabel;
     Label21: TLabel;
-    SpeedButton16: TSpeedButton;
-    SpeedButton17: TSpeedButton;
-    Edit17: TEdit;
-    Edit15: TEdit;
-    ComboBox2: TComboBox;
-    Edit14: TEdit;
-    ComboBox3: TComboBox;
-    ComboBox4: TComboBox;
-    DateTimePicker2: TDateTimePicker;
-    Edit16: TEdit;
-    Edit18: TEdit;
-    Edit19: TEdit;
-    SpeedButton18: TSpeedButton;
-    procedure PageControl1Change(Sender: TObject);
+    ButtonSalvarAt: TSpeedButton;
+    ButtonLimparAt: TSpeedButton;
+    ButtonListarAt: TSpeedButton;
+    Label9: TLabel;
+    editNomeAt: TEdit;
+    ComboBoxConvenioAt: TComboBox;
+    ComboBoxEspecialidadeAt: TComboBox;
+    ComboBoxProfissionalAt: TComboBox;
+    DateTimeAt: TDateTimePicker;
+    NumberBoxSessoesAt: TNumberBox;
+    NumberBoxTotalAt: TNumberBox;
+    NumberBoxDescontoAt: TNumberBox;
+    editContatoAt: TMaskEdit;
+    editCpfAt: TMaskEdit;
+    Panel7: TPanel;
+    StringGrid5: TStringGrid;
+    ButtonVoltarAt: TSpeedButton;
+    Panel10: TPanel;
+    PageControl2Prof: TPageControl;
+    TabSheet5: TTabSheet;
+    PanelMenuProf: TPanel;
+    Label4: TLabel;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label29: TLabel;
+    Label3: TLabel;
+    ButtonSalvarProf: TSpeedButton;
+    ButtonLimparProf: TSpeedButton;
+    Bevel1: TBevel;
+    Bevel2: TBevel;
+    ButtonListarProf: TSpeedButton;
+    editNomeProf: TEdit;
+    DateTimeProf: TDateTimePicker;
+    NumberBoxComissaoProf: TNumberBox;
+    ComboBoxEspecialidadeProf: TComboBox;
+    editEmailProf: TEdit;
+    editCpfProf: TMaskEdit;
+    editContatoProf: TMaskEdit;
+    TabSheet8: TTabSheet;
+    PanelMenuListaProf: TPanel;
+    ButtonVoltarProf: TSpeedButton;
+    StringGrid1: TStringGrid;
+    Panel6: TPanel;
+    ButtonCadastroProf: TSpeedButton;
+    ButtonEditarProf: TSpeedButton;
+    ButtonExcluirProf: TSpeedButton;
+    Panel11: TPanel;
+    PageControl3: TPageControl;
+    TabSheet9: TTabSheet;
+    PanelMenuPaci: TPanel;
+    Label30: TLabel;
+    Label31: TLabel;
+    Label32: TLabel;
+    Label34: TLabel;
+    Label35: TLabel;
+    Label36: TLabel;
+    ButtonListarPaci: TSpeedButton;
+    ButtonSalvarPaci: TSpeedButton;
+    ButtonLimparPaci: TSpeedButton;
+    Bevel3: TBevel;
+    Bevel4: TBevel;
+    Label33: TLabel;
+    editNomePaci: TEdit;
+    DateTimePaci: TDateTimePicker;
+    editEmailPaci: TEdit;
+    DateTimeNascimentoPaci: TDateTimePicker;
+    editCpfPaci: TMaskEdit;
+    editContatoPaci: TMaskEdit;
+    TabSheet10: TTabSheet;
+    PanelMenuListaPaci: TPanel;
+    ButtonVoltarPaci: TSpeedButton;
+    StringGrid2: TStringGrid;
+    Panel3: TPanel;
+    ButtonCadastroPaci: TSpeedButton;
+    ButtonEditarPaci: TSpeedButton;
+    ButtonExcluirPaci: TSpeedButton;
+    Panel12: TPanel;
+    PageControl4: TPageControl;
+    TabSheet11: TTabSheet;
+    PanelMenuConv: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label6: TLabel;
+    Label37: TLabel;
+    Label38: TLabel;
+    Label39: TLabel;
+    ButtonListarConv: TSpeedButton;
+    ButtonSalvarConv: TSpeedButton;
+    ButtonLimparConv: TSpeedButton;
+    Bevel5: TBevel;
+    Bevel6: TBevel;
+    Label40: TLabel;
+    editNomeConv: TEdit;
+    DateTimeConv: TDateTimePicker;
+    editEmailConv: TEdit;
+    NumberBoxCoberturaConv: TNumberBox;
+    editCnpjConv: TMaskEdit;
+    editContatoConv: TMaskEdit;
+    TabSheet12: TTabSheet;
+    PanelMenuListaConv: TPanel;
+    ButtonVoltarConv: TSpeedButton;
+    StringGrid3: TStringGrid;
+    Panel5: TPanel;
+    ButtonCadastroConv: TSpeedButton;
+    ButtonEditarConv: TSpeedButton;
+    ButtonExcluirConv: TSpeedButton;
+    Panel13: TPanel;
+    PageControl5: TPageControl;
+    TabSheet13: TTabSheet;
+    PanelMenuEspe: TPanel;
+    Label7: TLabel;
+    Label43: TLabel;
+    ButtonListarEspe: TSpeedButton;
+    ButtonSalvarEspe: TSpeedButton;
+    ButtonLimparEspe: TSpeedButton;
+    Bevel7: TBevel;
+    Bevel8: TBevel;
+    Label5: TLabel;
+    Label8: TLabel;
+    Label41: TLabel;
+    editNomeEspe: TEdit;
+    NumberBoxDuracaoEspe: TNumberBox;
+    NumberBoxValorEspe: TNumberBox;
+    editDescricaoEspe: TEdit;
+    TabSheet14: TTabSheet;
+    PanelMenuListaEspe: TPanel;
+    ButtonVoltarEspe: TSpeedButton;
+    StringGrid4: TStringGrid;
+    Panel9: TPanel;
+    ButtonCadastroEspe: TSpeedButton;
+    ButtonEditarEspe: TSpeedButton;
+    ButtonExcluirEspe: TSpeedButton;
     procedure PageControl1DrawTab(Control: TCustomTabControl; TabIndex: Integer;
-      const Rect: TRect; Active: Boolean);
-    procedure StringGrid1Click(Sender: TObject);
-    procedure StringGrid2Click(Sender: TObject);
-    procedure ComboBox1Change(Sender: TObject);
+    const Rect: TRect; Active: Boolean);
+    procedure buttonAdicionarPacienteAtClick(Sender: TObject);
+    procedure editContatoAtEnter(Sender: TObject);
+    procedure ButtonEditarProfClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure ButtonCadastroProfClick(Sender: TObject);
+    procedure ButtonListarAtClick(Sender: TObject);
+    procedure ButtonListarProfClick(Sender: TObject);
+    procedure ButtonListarPaciClick(Sender: TObject);
+    procedure ButtonListarConvClick(Sender: TObject);
+    procedure ButtonListarEspeClick(Sender: TObject);
+    procedure ButtonCadastroEspeClick(Sender: TObject);
+    procedure ButtonCadastroConvClick(Sender: TObject);
+    procedure ButtonCadastroPaciClick(Sender: TObject);
+    procedure ButtonVoltarAtClick(Sender: TObject);
+    procedure ExecutarAcao(Acao: string; TabControl: TPageControl; TabCadastro, TabCrud: TTabSheet; Grid: TStringGrid);
+    procedure ButtonExcluirProfClick(Sender: TObject);
+    procedure ButtonVoltarPaciClick(Sender: TObject);
+    procedure ButtonEditarPaciClick(Sender: TObject);
+    procedure ButtonExcluirPaciClick(Sender: TObject);
+    procedure ButtonSalvarPaciClick(Sender: TObject);
+    procedure ButtonLimparPaciClick(Sender: TObject);
+    procedure ButtonVoltarProfClick(Sender: TObject);
+    procedure ButtonLimparProfClick(Sender: TObject);
+    procedure ButtonSalvarProfClick(Sender: TObject);
+    procedure ButtonEditarConvClick(Sender: TObject);
+    procedure ButtonExcluirConvClick(Sender: TObject);
+    procedure ButtonSalvarConvClick(Sender: TObject);
+    procedure ButtonLimparConvClick(Sender: TObject);
+    procedure ButtonVoltarConvClick(Sender: TObject);
+    procedure ButtonEditarEspeClick(Sender: TObject);
+    procedure ButtonExcluirEspeClick(Sender: TObject);
+    procedure ButtonSalvarEspeClick(Sender: TObject);
+    procedure ButtonLimparEspeClick(Sender: TObject);
+    procedure ButtonVoltarEspeClick(Sender: TObject);
+    procedure ButtonSalvarAtClick(Sender: TObject);
+    procedure ButtonLimparAtClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure TabSheet2Enter(Sender: TObject);
       private
     { Private declarations }
   public
@@ -131,27 +230,221 @@ implementation
 
 {$R *.dfm}
 
-procedure TForm1.ComboBox1Change(Sender: TObject);
+procedure TForm1.FormCreate(Sender: TObject);
 begin
-  case ComboBox1.ItemIndex of
-        0: begin
-         Edit1.Text := '45 minutos';
-         Edit2.Text := 'R$100,00';
-        end;
-        1: begin
-         Edit1.Text := '30 minutos';
-         Edit2.Text := 'R$95,00';
-        end;
-        2: begin
-         Edit1.Text := '50 minutos';
-         Edit2.Text := 'R$120,00';
-        end;
-  end;
+ StringGrid1.Options := StringGrid1.Options + [goRowSelect];
+ StringGrid2.Options := StringGrid2.Options + [goRowSelect];
+ StringGrid3.Options := StringGrid3.Options + [goRowSelect];
+ StringGrid4.Options := StringGrid4.Options + [goRowSelect];
+ StringGrid5.Options := StringGrid5.Options + [goRowSelect];
 end;
 
-procedure TForm1.PageControl1Change(Sender: TObject);
+procedure TForm1.FormShow(Sender: TObject);
 begin
-  panel2.Visible:=true;
+  PageControl6.ActivePage:= Tabsheet15;
+  PageControl2Prof.ActivePage:=Tabsheet5;
+  PageControl3.ActivePage:=Tabsheet9;
+  PageControl4.ActivePage:=Tabsheet11;
+  PageControl5.ActivePage:=Tabsheet13;
+end;
+
+//"LOOP" DE FLUXO DE TELAS ENTRE BOTÕES
+//Atendimento:
+procedure TForm1.buttonAdicionarPacienteAtClick(Sender: TObject);
+begin
+  ExecutarAcao('Cadastrar', PageControl3, TabSheet9, TabSheet10, StringGrid2);
+end;
+
+procedure TForm1.ButtonListarAtClick(Sender: TObject);
+begin
+  ExecutarAcao('Listar', PageControl6, TabSheet15, TabSheet16, StringGrid5);
+end;
+
+procedure TForm1.ButtonSalvarAtClick(Sender: TObject);
+begin
+  ExecutarAcao('Salvar', PageControl6, TabSheet15, TabSheet16, StringGrid5);
+end;
+
+procedure TForm1.ButtonLimparAtClick(Sender: TObject);
+begin
+  ExecutarAcao('Limpar', PageControl6, TabSheet15, TabSheet16, StringGrid5);
+end;
+
+procedure TForm1.ButtonVoltarAtClick(Sender: TObject);
+begin
+  ExecutarAcao('Voltar', PageControl6, TabSheet15, TabSheet16, StringGrid5);
+end;
+
+//profissionais:
+procedure TForm1.ButtonCadastroProfClick(Sender: TObject);
+begin
+  ExecutarAcao('Cadastrar', PageControl2Prof, TabSheet5, TabSheet8, StringGrid1);
+end;
+
+procedure TForm1.ButtonEditarProfClick(Sender: TObject);
+begin
+  ExecutarAcao('Editar', PageControl2Prof, TabSheet5, TabSheet8, StringGrid1);
+end;
+
+procedure TForm1.ButtonExcluirProfClick(Sender: TObject);
+begin
+  ExecutarAcao('Excluir', PageControl2Prof, TabSheet5, TabSheet8, StringGrid1);
+end;
+
+procedure TForm1.ButtonListarProfClick(Sender: TObject);
+begin
+  ExecutarAcao('Listar', PageControl2Prof, TabSheet5, TabSheet8, StringGrid1);
+end;
+
+procedure TForm1.ButtonSalvarProfClick(Sender: TObject);
+begin
+  ExecutarAcao('Salvar', PageControl2Prof, TabSheet5, TabSheet8, StringGrid1);
+end;
+
+procedure TForm1.ButtonLimparProfClick(Sender: TObject);
+begin
+  ExecutarAcao('Limpar', PageControl2Prof, TabSheet5, TabSheet8, StringGrid1);
+end;
+
+procedure TForm1.ButtonVoltarProfClick(Sender: TObject);
+begin
+  ExecutarAcao('Voltar', PageControl2Prof, TabSheet5, TabSheet8, StringGrid1);
+end;
+
+
+//Pacientes:
+procedure TForm1.ButtonCadastroPaciClick(Sender: TObject);
+begin
+  ExecutarAcao('Cadastrar', PageControl3, TabSheet9, TabSheet10, StringGrid2);
+end;
+
+procedure TForm1.ButtonEditarPaciClick(Sender: TObject);
+begin
+  ExecutarAcao('Editar', PageControl3, TabSheet9, TabSheet10, StringGrid2);
+end;
+
+procedure TForm1.ButtonExcluirPaciClick(Sender: TObject);
+begin
+  ExecutarAcao('Excluir', PageControl3, TabSheet9, TabSheet10, StringGrid2);
+end;
+
+procedure TForm1.ButtonListarPaciClick(Sender: TObject);
+begin
+  ExecutarAcao('Listar', PageControl3, TabSheet9, TabSheet10, StringGrid2);
+end;
+
+procedure TForm1.ButtonSalvarPaciClick(Sender: TObject);
+begin
+  ExecutarAcao('Salvar', PageControl3, TabSheet9, TabSheet10, StringGrid2);
+end;
+
+procedure TForm1.ButtonLimparPaciClick(Sender: TObject);
+begin
+  ExecutarAcao('Limpar', PageControl3, TabSheet9, TabSheet10, StringGrid2);
+end;
+
+procedure TForm1.ButtonVoltarPaciClick(Sender: TObject);
+begin
+  ExecutarAcao('Voltar', PageControl3, TabSheet9, TabSheet10, StringGrid2);
+end;
+
+
+//Convenios:
+procedure TForm1.ButtonCadastroConvClick(Sender: TObject);
+begin
+  ExecutarAcao('Cadastrar', PageControl4, TabSheet11, TabSheet12, StringGrid3);
+end;
+
+procedure TForm1.ButtonEditarConvClick(Sender: TObject);
+begin
+  ExecutarAcao('Editar', PageControl4, TabSheet11, TabSheet12, StringGrid3);
+end;
+
+procedure TForm1.ButtonExcluirConvClick(Sender: TObject);
+begin
+  ExecutarAcao('Excluir', PageControl4, TabSheet11, TabSheet12, StringGrid3);
+end;
+
+procedure TForm1.ButtonListarConvClick(Sender: TObject);
+begin
+  ExecutarAcao('Listar', PageControl4, TabSheet11, TabSheet12, StringGrid3);
+end;
+
+procedure TForm1.ButtonSalvarConvClick(Sender: TObject);
+begin
+  ExecutarAcao('Salvar', PageControl4, TabSheet11, TabSheet12, StringGrid3);
+end;
+
+procedure TForm1.ButtonLimparConvClick(Sender: TObject);
+begin
+  ExecutarAcao('Limpar', PageControl4, TabSheet11, TabSheet12, StringGrid3);
+end;
+
+procedure TForm1.ButtonVoltarConvClick(Sender: TObject);
+begin
+  ExecutarAcao('Voltar', PageControl4, TabSheet11, TabSheet12, StringGrid3);
+end;
+
+
+//Especialidade:
+procedure TForm1.ButtonCadastroEspeClick(Sender: TObject);
+begin
+  ExecutarAcao('Cadastrar', PageControl5, TabSheet13, TabSheet14, StringGrid4);
+end;
+
+procedure TForm1.ButtonEditarEspeClick(Sender: TObject);
+begin
+  ExecutarAcao('Editar', PageControl5, TabSheet13, TabSheet14, StringGrid4);
+end;
+
+procedure TForm1.ButtonExcluirEspeClick(Sender: TObject);
+begin
+  ExecutarAcao('Excluir', PageControl5, TabSheet13, TabSheet14, StringGrid4);
+end;
+
+procedure TForm1.ButtonListarEspeClick(Sender: TObject);
+begin
+  ExecutarAcao('Listar', PageControl5, TabSheet13, TabSheet14, StringGrid4);
+end;
+
+procedure TForm1.ButtonSalvarEspeClick(Sender: TObject);
+begin
+  ExecutarAcao('Salvar', PageControl5, TabSheet13, TabSheet14, StringGrid4);
+end;
+
+procedure TForm1.ButtonLimparEspeClick(Sender: TObject);
+begin
+  ExecutarAcao('Limpar', PageControl5, TabSheet13, TabSheet14, StringGrid4);
+end;
+
+procedure TForm1.ButtonVoltarEspeClick(Sender: TObject);
+begin
+  ExecutarAcao('Voltar', PageControl5, TabSheet13, TabSheet14, StringGrid4);
+end;
+//FIM DO LOOP
+
+//procedure TForm1.ComboBox1Change(Sender: TObject);
+//begin
+//  case ComboBox1.ItemIndex of
+//        0: begin
+//         Edit1.Text := '45 minutos';
+//         Edit2.Text := 'R$100,00';
+//        end;
+//        1: begin
+//         Edit1.Text := '30 minutos';
+//         Edit2.Text := 'R$95,00';
+//        end;
+//        2: begin
+//         Edit1.Text := '50 minutos';
+//         Edit2.Text := 'R$120,00';
+//        end;
+//end;
+//end;
+
+procedure TForm1.editContatoAtEnter(Sender: TObject);
+begin
+ editContatoAt.SelStart := 0;
+ editContatoAt.SelLength :=0;
 end;
 
 procedure TForm1.PageControl1DrawTab(Control: TCustomTabControl;
@@ -177,40 +470,35 @@ var
              PChar(PC.Pages[TabIndex].Caption),
              -1, R,
              DT_CENTER or DT_VCENTER or DT_SINGLELINE);
-   end;
+    end;
 
-procedure TForm1.StringGrid1Click(Sender: TObject);
+procedure TForm1.TabSheet2Enter(Sender: TObject);
 begin
-  StringGrid1.Cells[0,0] := 'Nome';
-  StringGrid1.Cells[1,0] := 'CPF';
-  StringGrid1.Cells[2,0] := 'Data de Nascimento';
-  StringGrid1.Cells[3,0] := 'Especialidade';
-  StringGrid1.Cells[4,0] := 'Contato';
-
-  StringGrid1.ColWidths[0] := 200;
-  StringGrid1.ColWidths[1] := 130;
-  StringGrid1.ColWidths[2] := 280;
-  StringGrid1.ColWidths[3] := 230;
-  StringGrid1.ColWidths[4] := 180;
+  PageControl3.ActivePage:=TabSheet9;
 end;
 
-procedure TForm1.StringGrid2Click(Sender: TObject);
+procedure TForm1.ExecutarAcao(Acao: string; TabControl: TPageControl; TabCadastro, TabCrud: TTabSheet; Grid: TStringGrid);
 begin
-  StringGrid2.Cells[0,0] := 'Nome';
-  StringGrid2.Cells[1,0] := 'CPF';
-  StringGrid2.Cells[2,0] := 'Data de Nascimento';
-  StringGrid2.Cells[3,0] := 'Tipo de Atendimento';
-  StringGrid2.Cells[4,0] := 'Contato';
-  StringGrid2.Cells[5,0] := 'Data de Cadastro';
-  StringGrid2.Cells[6,0] := 'Sessão';
+  if Acao = 'Cadastrar' then begin
+    TabControl.ActivePage := TabCadastro;
+    //colocar a lógica de exclusão depois leozito
 
-  StringGrid2.ColWidths[0] := 260;
-  StringGrid2.ColWidths[1] := 200;
-  StringGrid2.ColWidths[2] := 350;
-  StringGrid2.ColWidths[3] := 330;
-  StringGrid2.ColWidths[4] := 210;
-  StringGrid2.ColWidths[5] := 310;
-  StringGrid2.ColWidths[6] := 210;
+  end else if Acao = 'Editar' then begin
+    TabControl.ActivePage := TabCrud;
+    if Grid.RowCount > 1 then
+      Grid.Row := 1;
+    //colocar a lógica de exclusão depois leozito
+
+  end else if Acao = 'Excluir' then begin
+    TabControl.ActivePage := TabCrud;
+    //colocar a lógica de exclusão depois leozito
+
+  end else if Acao = 'Listar' then begin
+    TabControl.ActivePage := TabCrud;
+
+  end else if Acao = 'Voltar' then begin
+    TabControl.ActivePage := TabCadastro
+  end;
+
 end;
-
 end.

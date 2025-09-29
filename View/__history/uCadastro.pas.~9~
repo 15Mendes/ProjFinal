@@ -1,0 +1,82 @@
+unit uCadastro;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls, Vcl.Imaging.jpeg, Vcl.Menus, Vcl.ComCtrls, uPrincipal;
+
+type
+  TFLogin = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Image3: TImage;
+    Image2: TImage;
+    Image1: TImage;
+    Panel4: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    ButtonEntrarLogin: TButton;
+    EditSenhaLogin: TEdit;
+    EditNomeLogin: TEdit;
+    Label5: TLabel;
+    procedure ButtonEntrarLoginClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure EditSenhaLoginChange(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    function validarCampos: Boolean;
+  end;
+
+var
+  FLogin: TFLogin;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TFLogin.ButtonEntrarLoginClick(Sender: TObject);
+begin
+   If (self.windowstate = wsmaximized) then begin
+    Self.Hide;
+    FLogin.WindowState := wsmaximized;
+    Form1.show;
+   end else begin
+    FLogin.WindowState := wsnormal;
+    Form1.show;
+   end;
+
+end;
+
+procedure TFLogin.EditSenhaLoginChange(Sender: TObject);
+begin
+  EditSenhaLogin.PasswordChar := '•';
+end;
+
+procedure TFLogin.FormCreate(Sender: TObject);
+  begin
+    if (windowstate = wsMinimized ) then begin
+    image3.Width := 940;
+    end else begin
+    image3.Width := 930;
+    end;
+  end;
+
+function TFLogin.validarCampos: Boolean;
+begin
+  if (EditNomeLogin.Text = '') OR (EditSenhaLogin.Text = '') then
+  begin
+    ShowMessage('Um dos campos está vazio.');
+    Result := False;
+  end
+  else
+    Result := True;
+end;
+
+end.

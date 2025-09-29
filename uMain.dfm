@@ -3,8 +3,8 @@ object FLogin: TFLogin
   Top = 0
   BorderStyle = bsSingle
   Caption = 'FLogin'
-  ClientHeight = 681
-  ClientWidth = 1248
+  ClientHeight = 695
+  ClientWidth = 1250
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,31 +17,31 @@ object FLogin: TFLogin
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1248
-    Height = 681
+    Width = 1250
+    Height = 695
     Align = alClient
     BorderStyle = bsSingle
     TabOrder = 0
-    ExplicitWidth = 1242
-    ExplicitHeight = 664
+    ExplicitWidth = 1244
+    ExplicitHeight = 679
     object Panel3: TPanel
       Left = 1
       Top = 1
       Width = 900
-      Height = 675
+      Height = 689
       Align = alLeft
       Alignment = taLeftJustify
       Caption = 'Panel3'
       TabOrder = 1
-      ExplicitHeight = 658
+      ExplicitHeight = 673
       DesignSize = (
         900
-        675)
+        689)
       object Image3: TImage
         Left = 1
         Top = 1
         Width = 898
-        Height = 673
+        Height = 687
         Margins.Left = 0
         Margins.Top = 0
         Margins.Bottom = 0
@@ -1562,6 +1562,7 @@ object FLogin: TFLogin
         Stretch = True
         ExplicitLeft = 0
         ExplicitTop = -3
+        ExplicitHeight = 673
       end
       object Image2: TImage
         AlignWithMargins = True
@@ -3725,108 +3726,138 @@ object FLogin: TFLogin
       end
     end
     object Panel2: TPanel
-      Left = 778
+      Left = 780
       Top = 1
       Width = 465
-      Height = 675
+      Height = 689
       Align = alRight
       Color = clHotLight
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 772
-      ExplicitHeight = 658
+      ExplicitLeft = 774
+      ExplicitHeight = 673
       object Label1: TLabel
-        Left = 176
-        Top = 129
-        Width = 125
-        Height = 57
+        Left = 137
+        Top = 89
+        Width = 190
+        Height = 88
         Caption = 'LOGIN'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
-        Font.Height = -48
-        Font.Name = 'Arial Narrow'
+        Font.Height = -72
+        Font.Name = 'Calibri'
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label2: TLabel
-        Left = 80
-        Top = 346
-        Width = 315
-        Height = 48
-        Caption = 'Seja bem vindo(a)!'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -36
-        Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object Edit1: TEdit
-        AlignWithMargins = True
-        Left = 48
-        Top = 416
-        Width = 365
-        Height = 40
-        Margins.Left = 40
-        Margins.Right = 40
-        Margins.Bottom = 50
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -24
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
+      object Panel4: TPanel
+        Left = 40
+        Top = 272
+        Width = 385
+        Height = 369
+        Color = clInactiveBorder
+        ParentBackground = False
         TabOrder = 0
-        TextHint = 'Digite seu CPF'
-      end
-      object Edit2: TEdit
-        AlignWithMargins = True
-        Left = 48
-        Top = 485
-        Width = 365
-        Height = 40
-        Margins.Left = 40
-        Margins.Right = 40
-        Margins.Bottom = 50
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -24
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 1
-        TextHint = 'Digite sua Senha'
-      end
-      object Button1: TButton
-        Left = 256
-        Top = 544
-        Width = 129
-        Height = 33
-        Cursor = crHandPoint
-        Caption = 'Entrar'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -18
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 2
-        OnClick = Button1Click
-      end
-      object Button2: TButton
-        Left = 72
-        Top = 544
-        Width = 129
-        Height = 33
-        Cursor = crHandPoint
-        Caption = 'Esqueci a senha'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -18
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 3
+        object Label2: TLabel
+          Left = 1
+          Top = 1
+          Width = 383
+          Height = 54
+          Align = alTop
+          Caption = '  Seja bem vindo(a)!'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -44
+          Font.Name = 'Calibri'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ExplicitWidth = 366
+        end
+        object Label3: TLabel
+          Left = 16
+          Top = 88
+          Width = 179
+          Height = 29
+          Caption = 'Insira o seu nome:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -24
+          Font.Name = 'Calibri'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label4: TLabel
+          Left = 16
+          Top = 164
+          Width = 163
+          Height = 29
+          Caption = 'Insira sua senha:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -24
+          Font.Name = 'Calibri'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label5: TLabel
+          Left = 32
+          Top = 304
+          Width = 329
+          Height = 41
+          Caption = 'Label5'
+        end
+        object Button1: TButton
+          Left = 40
+          Top = 248
+          Width = 129
+          Height = 33
+          Cursor = crHandPoint
+          Caption = 'Entrar'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -18
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          OnClick = Button1Click
+        end
+        object Edit1: TEdit
+          AlignWithMargins = True
+          Left = 16
+          Top = 193
+          Width = 353
+          Height = 40
+          HelpType = htKeyword
+          Margins.Left = 40
+          Margins.Right = 40
+          Margins.Bottom = 50
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -24
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          PasswordChar = #8226
+          TabOrder = 1
+          OnChange = Edit1Change
+        end
+        object Edit2: TEdit
+          AlignWithMargins = True
+          Left = 16
+          Top = 115
+          Width = 353
+          Height = 40
+          Margins.Left = 40
+          Margins.Right = 40
+          Margins.Bottom = 50
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -24
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+        end
       end
     end
   end
