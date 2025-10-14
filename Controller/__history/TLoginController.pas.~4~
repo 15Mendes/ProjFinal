@@ -1,0 +1,40 @@
+unit TLoginController;
+
+interface
+
+uses
+  System.SysUtils, TUsuariosModel, UsuariosService;
+
+type
+  LoginController = class
+  private
+    FService: TUsuarioService;
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    function Login(const AUsername, APassword: string): TUsuarios;
+  end;
+
+implementation
+
+{ TLoginController }
+
+constructor LoginController.Create;
+begin
+  inherited;
+  FService := TUsuarioService.Create;
+end;
+
+destructor LoginController.Destroy;
+begin
+  FService.Free;
+  inherited;
+end;
+
+function LoginController.Login(const AUsername, APassword: string): TUsuarios;
+begin
+  Result := FService.Authenticate(AUsername, APassword);
+end;
+
+end.

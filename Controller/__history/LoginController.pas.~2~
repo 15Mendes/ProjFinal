@@ -1,0 +1,44 @@
+unit LoginController;
+
+interface
+
+uses
+  System.SysUtils, TLoginUsuariosModel, UsuariosService;
+
+type
+  TLoginController = class
+  private
+    FService: TUsuarioService;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    function RealizarLogin(AUser: TUsuarios): Boolean;
+  end;
+
+implementation
+
+constructor TLoginController.Create;
+begin
+  FService := TUsuarioService.Create;
+end;
+
+destructor TLoginController.Destroy;
+begin
+  FService.Free;
+  inherited;
+end;
+
+function TLoginController.RealizarLogin(AUser: TUsuarios): Boolean;
+var
+  UsuarioDB: TUsuarios;
+begin
+  Result := False;
+  UsuarioDB := FService.Authenticate(AUser.GetNome, AUser.GetSenha);
+  if UsuarioDB <> nil then
+  begin
+    Result := True;
+    UsuarioDB.Free;
+  end;
+end;
+
+end.

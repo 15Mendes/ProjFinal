@@ -2,71 +2,78 @@ unit TProfissionaisModel;
 
 interface
 
-  type TProfissionais = Class
-    private
-      Nome: string;
-      Cpf: string;
-      Email: string;
-      Contato: string;
-    public
-      function getNome: string;
-      procedure setNome(pNome:string);
-      function getCpf: string;
-      procedure setCpf (pCpf:string);
-      function getEmail: string;
-      procedure setEmail(pEmail:string);
-      function getContato: string;
-      procedure setContato (pContato:string);
-      constructor create (pNome, pCpf, pEmail, Pcontato: string);
-  End;
+type
+  TProfissionais = class
+
+  private
+    FNome: string;
+    FCpf: string;
+    FEmail: string;
+    FContato: string;
+    FComissao: integer;
+
+  public
+    function getNome: string;
+    procedure setNome(pNome: string);
+    function getCpf: string;
+    procedure setCpf(pCpf: string);
+    function getEmail: string;
+    procedure setEmail(pEmail: string);
+    function getContato: string;
+    procedure setContato(pContato: string);
+    constructor Create(pNome, pCpf, pEmail, pContato: string);
+  end;
 
 implementation
 
 { TProfissionais }
 
-constructor TProfissionais.create(pNome, pCpf, pEmail, Pcontato: string);
+constructor TProfissionais.Create(pNome, pCpf, pEmail, pContato: string);
 begin
-
+  self.FNome:= pNome;
+  self.FCpf:= pCpf;
+  self.FEmail:= pEmail;
+  self.FContato:= pContato;
 end;
 
 function TProfissionais.getContato: string;
 begin
-  Result:= self.Contato;
+  Result := self.FContato;
 end;
 
 function TProfissionais.getCpf: string;
 begin
-  Result:= self.Cpf;
+  Result := self.FCpf;
 end;
 
 function TProfissionais.getEmail: string;
 begin
-  Result:= self.Email
+  Result := self.FEmail;
 end;
 
 function TProfissionais.getNome: string;
 begin
- Result:= self.Nome
+  Result := self.FNome;
 end;
 
 procedure TProfissionais.setContato(pContato: string);
 begin
-  self.Contato := pContato;
+  self.FContato := pContato;
 end;
 
 procedure TProfissionais.setCpf(pCpf: string);
 begin
-  self.Cpf := pCpf;
+  self.FCpf := pCpf;
 end;
 
 procedure TProfissionais.setEmail(pEmail: string);
 begin
-  self.Email:= pEmail;
+  self.FEmail := pEmail;
 end;
 
 procedure TProfissionais.setNome(pNome: string);
 begin
-self.Nome:= pNome;
+  self.FNome := pNome;
 end;
 
 end.

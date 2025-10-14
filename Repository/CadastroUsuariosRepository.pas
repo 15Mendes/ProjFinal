@@ -1,0 +1,63 @@
+unit CadastroUsuariosRepository;
+
+interface
+
+uses
+  System.SysUtils, FireDAC.Comp.Client, UnitData, TCadastroUsuariosModel;
+
+type
+  TCadastroUsuariosRepository = class
+  public
+    function InserirUsuarios(Usuario: TCUsuarios): Boolean;
+  end;
+
+implementation
+
+{ TCadastroUsuariosRepository }
+
+function TCadastroUsuariosRepository.InserirUsuarios(Usuario: TCUsuarios): Boolean;
+var
+  ProfissionalID: Integer;
+begin
+  Result := False;
+  with DataModule2.FDQuery do
+  begin
+    // Inserir profissional primeiro
+    Close;
+    SQL.Clear;
+    SQL.Add('INSERT INTO profissionais (nome, cpf, email, contato, especialidade, status, porcentual_comissao)');
+    SQL.Add('VALUES (:nome, :cpf, :email, :contato, :especialidade, :status, :porcentual_comissao) RETURNING id;');
+    ParamByName('nome').AsString := Usuario.getNome;
+    ParamByName('cpf').AsString := Usuario.getCpf;
+    ParamByName('email').AsString := Usuario.getEmail;
+    ParamByName('contato').AsString := Usuario.getContato;
+    ParamByName('especialidade').AsString := 'Padrão';
+    ParamByName('status').AsString := 'Ativo';
+    ParamByName('porcentual_comissao').AsFloat := 0;
+    Open;
+    ProfissionalID := FieldByName('id').AsInteger;
+    Close;
+
+    // Inserir usuário vinculado ao profissional
+    Close;
+    SQL.Clear;
+    SQL.Add('INSERT INTO usuarios (nome, senha, id_profissionais)');
+    SQL.Add('VALUES (:nome, :senha, :id_profissionais)');
+    ParamByName('nome').AsString := Usuario.getNome;
+    ParamByName('senha').AsString := Usuario.getSenha;
+    ParamByName('id_profissionais').AsInteger := ProfissionalID;
+    ExecSQL;
+
+    // Inserir permissão padrão (profissional comum) - ajuste id_permissao conforme seu cadastro
+    Close;
+    SQL.Clear;
+    SQL.Add('INSERT INTO usuario_permissoes (id_usuario, id_permissao)');
+    SQL.Add('VALUES ((SELECT id FROM usuarios WHERE nome = :nome ORDER BY id DESC LIMIT 1), 2)');
+    ParamByName('nome').AsString := Usuario.getNome;
+    ExecSQL;
+
+    Result := True;
+  end;
+end;
+
+end.

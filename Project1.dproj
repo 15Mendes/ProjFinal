@@ -127,7 +127,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="View\uCadastro.pas">
+        <DCCReference Include="View\uLoginUsuarios.pas">
             <Form>FLogin</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -141,9 +141,22 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="Model\TProfissionaisModel.pas"/>
-        <DCCReference Include="Repository\CadastroUsuarioRepository.pas"/>
-        <DCCReference Include="Controller\CadastroUsuarioController.pas"/>
-        <DCCReference Include="Service\UsuarioService.pas"/>
+        <DCCReference Include="Repository\LoginUsuariosRepository.pas"/>
+        <DCCReference Include="Service\LoginUsuariosService.pas"/>
+        <DCCReference Include="Model\TPacientesModel.pas"/>
+        <DCCReference Include="Model\TConveniosModel.pas"/>
+        <DCCReference Include="Model\TEspecialidadesModel.pas"/>
+        <DCCReference Include="Model\TAtendimentosModel.pas"/>
+        <DCCReference Include="Model\TLoginUsuariosModel.pas"/>
+        <DCCReference Include="Controller\LoginController.pas"/>
+        <DCCReference Include="View\uCadastroUsuarios.pas">
+            <Form>Form2</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Model\TCadastroUsuariosModel.pas"/>
+        <DCCReference Include="Repository\CadastroUsuariosRepository.pas"/>
+        <DCCReference Include="Controller\CadastroUsuariosController.pas"/>
+        <DCCReference Include="Service\CadastroUsuariosService.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -1,0 +1,65 @@
+unit CadastroUsuariosService;
+
+interface
+
+uses
+  System.SysUtils, TCadastroUsuariosModel, CadastroUsuariosRepository,
+  IdHashMessageDigest, IdGlobal;
+
+type
+  TCadastroUsuarioService = class
+  private
+    repository: TCadastroUsuariosRepository;
+    function GerarHashSenha(Senha: string): string;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    function Cadastrar(Usuario: TCUsuarios): Boolean;
+  end;
+
+implementation
+
+{ TCadastroUsuarioService }
+
+constructor TCadastroUsuarioService.Create;
+begin
+  repository := TCadastroUsuariosRepository.Create;
+end;
+
+destructor TCadastroUsuarioService.Destroy;
+begin
+  repository.Free;
+  inherited;
+end;
+
+// Função que gera um hash MD5 (pode trocar pra SHA256 depois)
+function TCadastroUsuarioService.GerarHashSenha(Senha: string): string;
+var
+  md5: TIdHashMessageDigest5;
+begin
+  md5 := TIdHashMessageDigest5.Create;
+  try
+    Result := md5.HashStringAsHex(Senha, TEncoding.UTF8);
+  finally
+    md5.Free;
+  end;
+end;
+
+function TCadastroUsuariosService.Cadastrar(Usuario: TCadastroUsuario): Boolean;
+begin
+  Result := False;
+  try
+    if (Usuario.getNome = '') or (Usuario.getSenha = '') or
+       (Usuario.getEmail = '') or (Usuario.getCpf = '') then
+      raise Exception.Create('Preencha todos os campos obrigatórios.');
+
+    // Criptografa a senha antes de salvar no banco
+    Usuario.setSenha(GerarHashSenha(Usuario.getSenha));
+
+    Result := repository.InserirUsuario(Usuario);
+  except
+    on E: Exception do
+      raise Exception.Create('Erro ao cadastrar usuário: ' + E.Message);
+  end;
+end;
+end.

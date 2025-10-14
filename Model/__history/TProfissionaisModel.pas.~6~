@@ -1,0 +1,87 @@
+unit TProfissionaisModel;
+
+interface
+
+type
+  TProfissionais = class
+  private
+
+    FNome: string;
+    FCpf: string;
+    FEmail: string;
+    FContato: string;
+  public
+    // ?? Métodos de acesso (getters e setters)
+    function getNome: string;
+    procedure setNome(pNome: string);
+
+    function getCpf: string;
+    procedure setCpf(pCpf: string);
+
+    function getEmail: string;
+    procedure setEmail(pEmail: string);
+
+    function getContato: string;
+    procedure setContato(pContato: string);
+
+    // ?? Construtor para facilitar criação do objeto já com dados
+    constructor Create(pNome, pCpf, pEmail, pContato: string);
+  end;
+
+implementation
+
+{ TProfissionais }
+
+constructor TProfissionais.Create(pNome, pCpf, pEmail, pContato: string);
+begin
+  // ?? Aqui antes estava vazio.
+  // Agora atribui os parâmetros recebidos para os atributos internos.
+  self.FNome    := pNome;
+  self.FCpf     := pCpf;
+  self.FEmail   := pEmail;
+  self.FContato := pContato;
+end;
+
+function TProfissionais.getContato: string;
+begin
+  // ?? Antes você usava "self.Contato", mas esse atributo não existia mais.
+  // Agora usa o campo correto "FContato".
+  Result := self.FContato;
+end;
+
+function TProfissionais.getCpf: string;
+begin
+  Result := self.FCpf;
+end;
+
+function TProfissionais.getEmail: string;
+begin
+  Result := self.FEmail;
+end;
+
+function TProfissionais.getNome: string;
+begin
+  Result := self.FNome;
+end;
+
+procedure TProfissionais.setContato(pContato: string);
+begin
+  self.FContato := pContato;
+end;
+
+procedure TProfissionais.setCpf(pCpf: string);
+begin
+  self.FCpf := pCpf;
+end;
+
+procedure TProfissionais.setEmail(pEmail: string);
+begin
+  self.FEmail := pEmail;
+end;
+
+procedure TProfissionais.setNome(pNome: string);
+begin
+  self.FNome := pNome;
+end;
+
+end.

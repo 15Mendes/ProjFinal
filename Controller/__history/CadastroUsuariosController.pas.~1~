@@ -1,0 +1,49 @@
+unit CadastroUsuariosController;
+
+interface
+
+uses
+  TCadastroUsuariosModel, CadastroUsuariosRepository, System.SysUtils;
+
+type
+  TCadastroUsuariosController = class
+  private
+    repository: TCadastroUsuariosRepository;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    function CadastrarUsuario(Usuario: TCUsuarios): Boolean;
+  end;
+
+implementation
+
+{ TCadastroUsuarioController }
+
+constructor TCadastroUsuariosController.Create;
+begin
+  repository := TCadastroUsuariosRepository.Create;
+end;
+
+destructor TCadastroUsuariosController.Destroy;
+begin
+  repository.Free;
+  inherited;
+end;
+
+function TCadastroUsuariosController.CadastrarUsuario(Usuario: TCUsuarios): Boolean;
+begin
+  Result := False;
+  try
+    if (Usuario.getNome = '') or (Usuario.getSenha = '') or
+       (Usuario.getEmail = '') or (Usuario.getCpf = '') then
+      raise Exception.Create('Preencha todos os campos obrigatórios.');
+
+    Result := repository.InserirUsuarios(Usuario);
+  except
+    on E: Exception do
+      raise Exception.Create('Erro ao cadastrar usuário: ' + E.Message);
+  end;
+end;
+
+end.
+

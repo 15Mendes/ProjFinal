@@ -1,0 +1,31 @@
+program Project1;
+
+uses
+  Vcl.Forms,
+  uLoginUsuarios in 'View\uLoginUsuarios.pas' {FLogin},
+  uPrincipal in 'View\uPrincipal.pas' {Form1},
+  UnitData in 'Model\UnitData.pas' {DataModule2: TDataModule},
+  TProfissionaisModel in 'Model\TProfissionaisModel.pas',
+  CadastroUsuariosRepository in 'Repository\CadastroUsuariosRepository.pas',
+  UsuariosService in 'Service\UsuariosService.pas',
+  TPacientesModel in 'Model\TPacientesModel.pas',
+  TConveniosModel in 'Model\TConveniosModel.pas',
+  TEspecialidadesModel in 'Model\TEspecialidadesModel.pas',
+  TAtendimentosModel in 'Model\TAtendimentosModel.pas',
+  TLoginUsuariosModel in 'Model\TLoginUsuariosModel.pas',
+  LoginController in 'Controller\LoginController.pas',
+  uCadastroUsuarios in 'View\uCadastroUsuarios.pas' {Form2},
+  TCadastroUsuariosModel in 'Model\TCadastroUsuariosModel.pas',
+  CadastroUsuarioRepository in 'Repository\CadastroUsuarioRepository.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFLogin, FLogin);
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TDataModule2, DataModule2);
+  Application.CreateForm(TForm2, Form2);
+  Application.Run;
+end.

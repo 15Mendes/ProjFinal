@@ -217,6 +217,7 @@ type
     procedure ButtonLimparAtClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure TabSheet2Enter(Sender: TObject);
+    procedure Label5Click(Sender: TObject);
       private
     { Private declarations }
   public
@@ -248,10 +249,17 @@ begin
   PageControl5.ActivePage:=Tabsheet13;
 end;
 
+procedure TForm1.Label5Click(Sender: TObject);
+begin
+
+end;
+
 //"LOOP" DE FLUXO DE TELAS ENTRE BOTÕES
 //Atendimento:
 procedure TForm1.buttonAdicionarPacienteAtClick(Sender: TObject);
 begin
+  TabSheet9.Show;
+  EditNomePaci.SetFocus;
   ExecutarAcao('Cadastrar', PageControl3, TabSheet9, TabSheet10, StringGrid2);
 end;
 

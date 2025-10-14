@@ -1312,7 +1312,7 @@ object Form1: TForm1
     Width = 1250
     Height = 634
     Cursor = crHandPoint
-    ActivePage = TabSheet7
+    ActivePage = TabSheet1
     Align = alClient
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -1509,7 +1509,7 @@ object Form1: TForm1
                 AlignWithMargins = True
                 Left = -4
                 Top = 216
-                Width = 1176
+                Width = 1158
                 Height = 39
                 Margins.Left = 0
                 Margins.Right = 0
@@ -4562,6 +4562,8 @@ object Form1: TForm1
         Color = clSteelblue
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 1236
+        ExplicitHeight = 562
         object Panel11: TPanel
           AlignWithMargins = True
           Left = 51
@@ -4577,6 +4579,8 @@ object Form1: TForm1
           Color = clSteelblue
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 1134
+          ExplicitHeight = 480
           object PageControl3: TPageControl
             Left = 283
             Top = 0
@@ -4585,6 +4589,8 @@ object Form1: TForm1
             ActivePage = TabSheet9
             Align = alRight
             TabOrder = 0
+            ExplicitLeft = 277
+            ExplicitHeight = 480
             object TabSheet9: TTabSheet
               Caption = 'CadastroPacientes'
               TabVisible = False
@@ -4604,6 +4610,7 @@ object Form1: TForm1
                 Color = clWhite
                 ParentBackground = False
                 TabOrder = 0
+                ExplicitHeight = 470
                 DesignSize = (
                   841
                   479)
@@ -4997,7 +5004,7 @@ object Form1: TForm1
                 object Bevel4: TBevel
                   AlignWithMargins = True
                   Left = -4
-                  Top = 373
+                  Top = 375
                   Width = 844
                   Height = 14
                   Margins.Left = 0
@@ -5238,6 +5245,7 @@ object Form1: TForm1
             Color = clWhite
             ParentBackground = False
             TabOrder = 1
+            ExplicitHeight = 480
             object ButtonCadastroPaci: TSpeedButton
               Left = 0
               Top = 0
@@ -9300,8 +9308,6 @@ object Form1: TForm1
         Color = clSteelblue
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 1236
-        ExplicitHeight = 562
         object Panel13: TPanel
           AlignWithMargins = True
           Left = 51
@@ -9317,8 +9323,6 @@ object Form1: TForm1
           Color = clSteelblue
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 1134
-          ExplicitHeight = 480
           object PageControl5: TPageControl
             Left = 288
             Top = 0
@@ -9700,15 +9704,16 @@ object Form1: TForm1
                 object Label5: TLabel
                   Left = 482
                   Top = 65
-                  Width = 242
+                  Width = 188
                   Height = 29
-                  Caption = 'Dura'#231#227'o de cada Sess'#227'o:'
+                  Caption = 'Dura'#231#227'o da sess'#227'o:'
                   Font.Charset = ANSI_CHARSET
                   Font.Color = clWindowText
                   Font.Height = -24
                   Font.Name = 'Calibri'
                   Font.Style = []
                   ParentFont = False
+                  OnClick = Label5Click
                 end
                 object Label8: TLabel
                   Left = 592
@@ -9901,7 +9906,6 @@ object Form1: TForm1
             Color = clWhite
             ParentBackground = False
             TabOrder = 1
-            ExplicitHeight = 480
             object ButtonCadastroEspe: TSpeedButton
               Left = 0
               Top = 0

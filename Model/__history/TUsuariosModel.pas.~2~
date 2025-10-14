@@ -1,0 +1,41 @@
+unit TUsuariosModel;
+
+interface
+type
+TUsuarios=class
+  private
+  FNome:string;
+  FSenha:string;
+
+  public
+  function getNome: string;
+  procedure setNome(FNome: string);
+  function getSenha: string;
+  procedure setSenha(FSenha: string);
+end;
+
+implementation
+
+{ TUsuarios }
+
+function TUsuarios.getNome: string;
+begin
+
+end;
+
+function TUsuarios.getSenha: string;
+begin
+
+end;
+
+procedure TUsuarios.setNome(FNome: string);
+begin
+
+end;
+
+procedure TUsuarios.setSenha(FSenha: string);
+begin
+
+end;
+
+end.

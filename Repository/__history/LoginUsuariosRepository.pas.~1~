@@ -1,0 +1,88 @@
+﻿unit CadastroUsuariosRepository;
+
+interface
+
+uses
+  System.SysUtils, Data.DB, FireDAC.Comp.Client, UnitData, TLoginUsuariosModel;
+
+type
+  TCadastroUsuarioRepository = class
+  private
+    FQuery: TFDQuery;
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    procedure Inserir(AUser: TLUsuarios);
+    procedure Atualizar(AUser: TLUsuarios);
+    procedure Excluir(const AUsername: string);
+    function GetByUsername(const AUsername: string): TLUsuarios;
+  end;
+
+implementation
+
+{ TCadastroUsuarioRepository }
+
+constructor TCadastroUsuarioRepository.Create;
+begin
+  if not Assigned(DataModule2) then
+  DataModule2 := TDataModule2.Create(nil);
+
+  FQuery := TFDQuery.Create(nil);
+  FQuery.Connection := DataModule2.FDConnection;
+end;
+
+destructor TCadastroUsuarioRepository.Destroy;
+begin
+  FQuery.Free;
+  inherited;
+end;
+
+procedure TCadastroUsuarioRepository.Inserir(AUser: TLUsuarios);
+begin
+  FQuery.Close;
+  FQuery.SQL.Text := 'INSERT INTO usuarios (username, senha, ativo) VALUES (:u, :s, :a)';
+  FQuery.ParamByName('u').AsString := AUser.getNome;
+  FQuery.ParamByName('s').AsString := AUser.getSenha;
+  FQuery.ParamByName('a').AsBoolean := True;
+  FQuery.ExecSQL;
+end;
+
+procedure TCadastroUsuarioRepository.Atualizar(AUser: TLUsuarios);
+begin
+  FQuery.Close;
+  FQuery.SQL.Text := 'UPDATE usuarios SET senha = :s WHERE username = :u';
+  FQuery.ParamByName('u').AsString := AUser.getNome;
+  FQuery.ParamByName('s').AsString := AUser.getSenha;
+  FQuery.ExecSQL;
+end;
+
+procedure TCadastroUsuarioRepository.Excluir(const AUsername: string);
+begin
+  FQuery.Close;
+  FQuery.SQL.Text := 'DELETE FROM usuarios WHERE username = :u';
+  FQuery.ParamByName('u').AsString := AUsername;
+  FQuery.ExecSQL;
+end;
+
+function TCadastroUsuarioRepository.GetByUsername(const AUsername: string): TLUsuarios;
+begin
+  Result := nil;
+  FQuery.Close;
+  FQuery.SQL.Text := 'SELECT username, senha FROM usuarios WHERE username = :u';
+  FQuery.ParamByName('u').AsString := AUsername;
+  FQuery.Open;
+  try
+    if not FQuery.IsEmpty then
+    begin
+      Result := TLUsuarios.Create;
+      Result.setNome(FQuery.FieldByName('username').AsString);
+      Result.setSenha(FQuery.FieldByName('senha').AsString);
+    end;
+  finally
+    FQuery.Close;
+  end;
+end;
+
+end.
+

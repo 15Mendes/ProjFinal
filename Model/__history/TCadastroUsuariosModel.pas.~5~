@@ -1,0 +1,81 @@
+unit TCadastroUsuariosModel;
+
+interface
+
+type
+  TCUsuarios = class
+  private
+    vNome: string;
+    vSenha: string;
+    vEmail: string;
+    vContato: string;
+    vCpf: string;
+  public
+    procedure setNome(value: string);
+    procedure setSenha(value: string);
+    procedure setEmail(value: string);
+    procedure setContato(value: string);
+    procedure setCpf(value: string);
+
+    function getNome: string;
+    function getSenha: string;
+    function getEmail: string;
+    function getContato: string;
+    function getCpf: string;
+  end;
+
+implementation
+
+{ TCadastroUsuario }
+
+procedure TCUsuarios.setNome(value: string);
+begin
+  vNome := value;
+end;
+
+procedure TCUsuarios.setSenha(value: string);
+begin
+  vSenha := value;
+end;
+
+procedure TCUsuarios.setEmail(value: string);
+begin
+  vEmail := value;
+end;
+
+procedure TCUsuarios.setContato(value: string);
+begin
+  vContato := value;
+end;
+
+procedure TCUsuarios.setCpf(value: string);
+begin
+  vCpf := value;
+end;
+
+function TCUsuarios.getNome: string;
+begin
+  Result := vNome;
+end;
+
+function TCUsuarios.getSenha: string;
+begin
+  Result := vSenha;
+end;
+
+function TCUsuarios.getEmail: string;
+begin
+  Result := vEmail;
+end;
+
+function TCUsuarios.getContato: string;
+begin
+  Result := vContato;
+end;
+
+function TCUsuarios.getCpf: string;
+begin
+  Result := vCpf;
+end;
+
+end.

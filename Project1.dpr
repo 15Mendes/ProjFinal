@@ -2,13 +2,23 @@ program Project1;
 
 uses
   Vcl.Forms,
-  uCadastro in 'View\uCadastro.pas' {FLogin},
+  uLoginUsuarios in 'View\uLoginUsuarios.pas' {FLogin},
   uPrincipal in 'View\uPrincipal.pas' {Form1},
   UnitData in 'Model\UnitData.pas' {DataModule2: TDataModule},
   TProfissionaisModel in 'Model\TProfissionaisModel.pas',
-  CadastroUsuarioRepository in 'Repository\CadastroUsuarioRepository.pas',
-  CadastroUsuarioController in 'Controller\CadastroUsuarioController.pas',
-  UsuarioService in 'Service\UsuarioService.pas';
+  LoginUsuariosRepository in 'Repository\LoginUsuariosRepository.pas',
+  LoginUsuariosService in 'Service\LoginUsuariosService.pas',
+  TPacientesModel in 'Model\TPacientesModel.pas',
+  TConveniosModel in 'Model\TConveniosModel.pas',
+  TEspecialidadesModel in 'Model\TEspecialidadesModel.pas',
+  TAtendimentosModel in 'Model\TAtendimentosModel.pas',
+  TLoginUsuariosModel in 'Model\TLoginUsuariosModel.pas',
+  LoginController in 'Controller\LoginController.pas',
+  uCadastroUsuarios in 'View\uCadastroUsuarios.pas' {Form2},
+  TCadastroUsuariosModel in 'Model\TCadastroUsuariosModel.pas',
+  CadastroUsuariosRepository in 'Repository\CadastroUsuariosRepository.pas',
+  CadastroUsuariosController in 'Controller\CadastroUsuariosController.pas',
+  CadastroUsuariosService in 'Service\CadastroUsuariosService.pas';
 
 {$R *.res}
 
@@ -18,5 +28,6 @@ begin
   Application.CreateForm(TFLogin, FLogin);
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TDataModule2, DataModule2);
+  Application.CreateForm(TForm2, Form2);
   Application.Run;
 end.

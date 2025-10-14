@@ -1,0 +1,12 @@
+unit TLoginController;
+
+interface
+Type
+  TUsusarioController=class
+
+
+  end;
+
+implementation
+
+end.

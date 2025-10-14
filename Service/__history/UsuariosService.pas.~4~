@@ -1,0 +1,69 @@
+unit UsuariosService;
+
+interface
+
+uses
+  System.SysUtils, TUsuariosModel, CadastroUsuariosRepository;
+
+type
+  TUsuarioService = class
+  private
+    FRepo: TCadastroUsuarioRepository;
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    function Authenticate(const AUsername, APassword: string): TUsuarios;
+
+    //pra vc testar lindao
+    procedure CreateUser(const AUsername, APassword: string);
+  end;
+
+implementation
+
+{ TUsuarioService }
+
+constructor TUsuarioService.Create;
+begin
+  inherited;
+  FRepo := TCadastroUsuarioRepository.Create;
+end;
+
+destructor TUsuarioService.Destroy;
+begin
+  FRepo.Free;
+  inherited;
+end;
+
+function TUsuarioService.Authenticate(const AUsername, APassword: string): TUsuarios;
+var
+  u: TUsuarios;
+begin
+  Result := nil;
+  u := FRepo.GetByUsername(AUsername);
+  if u = nil then
+    Exit;
+
+
+  if u.getSenha = APassword then
+    Result := u
+  else
+    u.Free;
+end;
+
+procedure TUsuarioService.CreateUser(const AUsername, APassword: string);
+var
+  u: TUsuarios;
+begin
+  u := TUsuarios.Create;
+  try
+    u.setNome(AUsername);
+    u.setSenha(APassword);
+    FRepo.Inserir(u);
+  finally
+    u.Free;
+  end;
+end;
+
+end.
+

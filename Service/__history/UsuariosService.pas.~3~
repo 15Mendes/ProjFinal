@@ -1,0 +1,70 @@
+unit UsuariosService;
+
+interface
+
+uses
+  System.SysUtils, TUsuariosModel, CadastroUsuariosRepository;
+
+type
+  TUsuarioService = class
+  private
+    FRepo: TCadastroUsuarioRepository;
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    // Retorna o objeto TUsuarios se autenticado, caso contrário nil.
+    function Authenticate(const AUsername, APassword: string): TUsuarios;
+
+    // Método utilitário para criar usuário (útil para testes)
+    procedure CreateUser(const AUsername, APassword: string);
+  end;
+
+implementation
+
+{ TUsuarioService }
+
+constructor TUsuarioService.Create;
+begin
+  inherited;
+  FRepo := TCadastroUsuarioRepository.Create;
+end;
+
+destructor TUsuarioService.Destroy;
+begin
+  FRepo.Free;
+  inherited;
+end;
+
+function TUsuarioService.Authenticate(const AUsername, APassword: string): TUsuarios;
+var
+  u: TUsuarios;
+begin
+  Result := nil;
+  u := FRepo.GetByUsername(AUsername);
+  if u = nil then
+    Exit; // usuário não existe
+
+  // comparação simples (senha em texto). Em produção, não use texto puro.
+  if u.getSenha = APassword then
+    Result := u
+  else
+    u.Free; // senha incorreta -> liberar objeto e retornar nil
+end;
+
+procedure TUsuarioService.CreateUser(const AUsername, APassword: string);
+var
+  u: TUsuarios;
+begin
+  u := TUsuarios.Create;
+  try
+    u.setNome(AUsername);
+    u.setSenha(APassword);
+    FRepo.Inserir(u);
+  finally
+    u.Free;
+  end;
+end;
+
+end.
+

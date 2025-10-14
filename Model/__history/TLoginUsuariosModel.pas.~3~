@@ -1,0 +1,42 @@
+unit TLoginUsuariosModel;
+
+interface
+
+type
+  TLUsuarios = class
+  private
+    FNome: string;
+    FSenha: string;
+
+  public
+    function getNome: string;
+    procedure setNome(const Value: string);
+    function getSenha: string;
+    procedure setSenha(const Value: string);
+  end;
+
+implementation
+
+{ TUsuarios }
+
+function TLUsuarios.getNome: string;
+begin
+  Result := FNome;
+end;
+
+procedure TLUsuarios.setNome(const Value: string);
+begin
+  FNome := Value;
+end;
+
+function TLUsuarios.getSenha: string;
+begin
+  Result := FSenha;
+end;
+
+procedure TLUsuarios.setSenha(const Value: string);
+begin
+  FSenha := Value;
+end;
+
+end.
